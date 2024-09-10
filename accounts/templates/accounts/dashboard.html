@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #141414;
+            color: #ffffff;
+            position: relative;
+        }
+
+        /* Background moving lines */
+        .background-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.05) 0,
+                rgba(255, 255, 255, 0.05) 1px,
+                transparent 1px,
+                transparent 10px
+            );
+            animation: moveBackground 5s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes moveBackground {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 100px 100px;
+            }
+        }
+
+        .container {
+            max-width: 900px;
+        }
+
+        .dashboard-header {
+            text-align: center;
+            padding: 50px 0;
+            color: #ffffff;
+        }
+
+        h1, h2 {
+            font-weight: bold;
+        }
+
+        .crypto-cards {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 40px;
+        }
+
+        .crypto-card {
+            background-color: #1f1f1f;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .crypto-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.7);
+        }
+
+        .crypto-card img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 20px;
+        }
+
+        .crypto-card h5 {
+            margin-bottom: 10px;
+        }
+
+        .btn-primary {
+            background-color: #3773f5;
+            border: none;
+            padding: 10px 20px;
+            font-weight: bold;
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .btn-primary:hover {
+            background-color: #2851a3;
+        }
+
+        .btn-danger {
+            margin-top: 30px;
+            width: 100px;
+        }
+
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+            padding: 20px 0;
+            border-top: 1px solid #333;
+            color: #888;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background-lines"></div>
+
+    <div class="container">
+        <div class="dashboard-header">
+            <h1>Dashboard</h1>
+            <h2>Welcome, {{ user.username }}!</h2>
+            <p>Your Balance: ${{ balance }}</p>
+        </div>
+
+        <div class="crypto-cards">
+            <div class="crypto-card">
+                <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.svg?v=014" alt="Bitcoin icon">
+                <h5>Bitcoin (BTC)</h5>
+                <p>Price: ${{ cryptocurrencies.BTC.price }}</p>
+                <a href="{% url 'buy_crypto' %}" class="btn btn-primary">Buy Bitcoin</a>
+            </div>
+
+            <div class="crypto-card">
+                <img src="https://cryptologos.cc/logos/ethereum-eth-logo.svg?v=014" alt="Ethereum icon">
+                <h5>Ethereum (ETH)</h5>
+                <p>Price: ${{ cryptocurrencies.ETH.price }}</p>
+                <a href="{% url 'buy_crypto' %}" class="btn btn-primary">Buy Ethereum</a>
+            </div>
+
+            <div class="crypto-card">
+                <img src="https://cryptologos.cc/logos/solana-sol-logo.svg?v=014" alt="Solana icon">
+                <h5>Solana (SOL)</h5>
+                <p>Price: ${{ cryptocurrencies.SOL.price }}</p>
+                <a href="{% url 'buy_crypto' %}" class="btn btn-primary">Buy Solana</a>
+            </div>
+        </div>
+
+        <a href="{% url 'logout' %}" class="btn btn-danger">Logout</a>
+
+        <div class="footer">
+            <p>Mario's SoftUni Crypto Exchange &copy; 2024</p>
+        </div>
+    </div>
+</body>
+
+</html>
