@@ -13,7 +13,7 @@
             position: relative;
         }
 
-        /* Background moving lines */
+        /* Background dynamic lines */
         .background-lines {
             position: absolute;
             top: 0;
@@ -40,8 +40,54 @@
             }
         }
 
+        /* Top Left Dropdown */
+        .dropdown {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #1f1f1f;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #3773f5;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: #2851a3;
+        }
+
+        .dropbtn {
+            background-color: #3773f5;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Dashboard styles */
         .container {
             max-width: 900px;
+            margin-top: 100px; /* Adjusted for the menu at the top */
         }
 
         .dashboard-header {
@@ -50,7 +96,8 @@
             color: #ffffff;
         }
 
-        h1, h2 {
+        h1,
+        h2 {
             font-weight: bold;
         }
 
@@ -109,11 +156,39 @@
             border-top: 1px solid #333;
             color: #888;
         }
+
+        /* Contact and About sections */
+        .footer-links {
+            margin-top: 20px;
+        }
+
+        .footer-links a {
+            color: #888;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+        }
     </style>
 </head>
 
 <body>
     <div class="background-lines"></div>
+
+    <!-- Top Left Dropdown Menu -->
+    <div class="dropdown">
+        <button class="dropbtn">Menu</button>
+        <div class="dropdown-content">
+            <a href="#">News</a>
+            <a href="#">Market Updates</a>
+            <a href="#">Wallet</a>
+            <a href="#">Portfolio</a>
+            <a href="#">Support</a>
+        </div>
+    </div>
 
     <div class="container">
         <div class="dashboard-header">
@@ -147,8 +222,13 @@
 
         <a href="{% url 'logout' %}" class="btn btn-danger">Logout</a>
 
+        <!-- Footer with Contact and About Us -->
         <div class="footer">
             <p>Mario's SoftUni Crypto Exchange &copy; 2024</p>
+            <div class="footer-links">
+                <a href="#">Contact Us</a>
+                <a href="#">About Us</a>
+            </div>
         </div>
     </div>
 </body>
