@@ -8,7 +8,7 @@ Users can log in, see their balance, and simulate buying cryptocurrencies.
 
 - User registration and login system
 - Dashboard displaying popular cryptocurrencies (Bitcoin, Ethereum, Solana)
-- Simulated "Buy" functionality for each cryptocurrency
+- Simulated "Buy" functionality for each cryptocurrency 
 - Authentication and protected routes for logged-in users
 
 ## Technologies Used
