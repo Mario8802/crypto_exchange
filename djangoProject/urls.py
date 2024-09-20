@@ -9,3 +9,4 @@ urlpatterns = [
     # Redirect root URL to the login page or home page
     path('', lambda request: redirect('login')),  # Redirect to the login page
 ]
+ 
