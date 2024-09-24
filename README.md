@@ -5,7 +5,7 @@ The goal of this project is to provide users with a basic interface to view popu
 Users can log in, see their balance, and simulate buying cryptocurrencies.
 
 ## Features
-
+ 
 - User registration and login system
 - Dashboard displaying popular cryptocurrencies (Bitcoin, Ethereum, Solana)
 - Simulated "Buy" functionality for each cryptocurrency 
