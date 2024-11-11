@@ -1,4 +1,4 @@
-# Crypto Exchange
+# Crypto Exchange 
   
 This is a simple crypto exchange dashboard project built using Django.   
 The goal of this project is to provide users with a basic interface to view popular cryptocurrencies and their prices.  
